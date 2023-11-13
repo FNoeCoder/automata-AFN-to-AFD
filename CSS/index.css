@@ -1,0 +1,237 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background: #fafafa;
+  width: 100%;
+  min-height: 100vh;
+}
+
+header {
+  width: 100%;
+  height: 100px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+header h1 {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  color: #333;
+}
+header p#autor {
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+}
+
+main section#instrucciones {
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+main section#instrucciones h2 {
+  font-size: 25px;
+  font-weight: 500;
+  color: #333;
+  margin: 15px 0;
+}
+main section#instrucciones p {
+  display: block;
+  width: 90%;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 400;
+  color: #333;
+  margin-bottom: 15px;
+}
+main section#capturar_datos {
+  width: 100%;
+  min-height: 150px;
+  height: -moz-max-content;
+  height: max-content;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 5px;
+}
+main section#capturar_datos section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  min-width: 400px;
+  margin-top: 10px;
+}
+main section#capturar_datos section label {
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+}
+main section#capturar_datos section input {
+  min-width: 200;
+  width: 50%;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+  outline: none;
+}
+main section#capturar_datos section input:disabled {
+  cursor: not-allowed;
+}
+main section#capturar_datos section button#boton_calcular {
+  min-width: 200px;
+  width: 50%;
+  height: 60px;
+  background: #333;
+  border: 1px solid #333;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 400;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin: 0;
+}
+main section#capturar_datos section button#boton_calcular:hover {
+  background: #222;
+}
+main section#capturar_datos section button#boton_calcular:disabled {
+  cursor: not-allowed;
+  background: #222;
+  color: #333;
+  background-color: #fff;
+  border: solid 1px #333;
+}
+main section#capturar_datos section p#error {
+  margin: 10px 0;
+  color: rgb(184, 21, 21);
+}
+main section#capturar_datos section#llenar_funciones_transicion.desactivado {
+  display: none;
+}
+main section#capturar_datos section#llenar_funciones_transicion.activado {
+  height: -moz-max-content;
+  height: max-content;
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  overflow-x: auto;
+}
+main section#capturar_datos section#llenar_funciones_transicion.activado table {
+  width: -moz-max-content;
+  width: max-content;
+  border: #222 solid 1px;
+}
+main section#capturar_datos section#llenar_funciones_transicion.activado table tr {
+  transition: 0.2s ease-in-out;
+}
+main section#capturar_datos section#llenar_funciones_transicion.activado table tr:hover {
+  background-color: rgba(105, 154, 200, 0.168627451);
+}
+main section#capturar_datos section#llenar_funciones_transicion.activado table th {
+  width: 100px;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 10px 0;
+  text-align: center;
+  background-color: rgb(47, 113, 163);
+  color: #fafafa;
+}
+main section#capturar_datos section#llenar_funciones_transicion.activado table td {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 3px 0;
+  text-align: center;
+}
+main section#capturar_datos section#llenar_funciones_transicion.activado table td input {
+  width: 90%;
+  height: 40px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+main section#resultado {
+  height: -moz-max-content;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  overflow-x: auto;
+}
+main section#resultado table#tabla_resultado.desactivado {
+  display: none;
+}
+main section#resultado table#tabla_resultado.activado {
+  display: block;
+}
+main section#resultado table#tabla_resultado {
+  margin: 10px 0;
+  width: -moz-max-content;
+  width: max-content;
+  border: #222 solid 1px;
+}
+main section#resultado table#tabla_resultado tr {
+  transition: 0.2s ease-in-out;
+}
+main section#resultado table#tabla_resultado tr:hover {
+  background-color: rgba(105, 154, 200, 0.168627451);
+}
+main section#resultado table#tabla_resultado th {
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 10px 0;
+  text-align: center;
+  background-color: rgb(47, 113, 163);
+  color: #fafafa;
+}
+main section#resultado table#tabla_resultado td {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 14px 0;
+  text-align: center;
+}
+main div#miRed.desactivado {
+  display: none;
+}
+main div#miRed.activado {
+  display: block;
+}
+main div#miRed {
+  width: 100%;
+  height: 500px;
+  background-color: #fff;
+}/*# sourceMappingURL=index.css.map */

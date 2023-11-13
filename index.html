@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/index.css">
+</head>
+<body>
+    <header>
+        <h1>CALCULADORA DE AFD EN BASE A UN AFN</h1>
+        <p id="autor">Francisco Noé Arriaga Hernández</p>
+    </header>
+
+    <main>
+        <section id="instrucciones">
+            <h2>Instrucciones</h2>
+            <p>Ingresa los datos del AFN en los campos correspondientes y da clic en el botón "Calcular AFD"</p>
+            <p>Las funciones de transición se podrán llenar una vez ingresados los estados y el alfabeto</p>
+        </section>
+        <section id="capturar_datos">
+
+            <section>
+                <label for="estados">Estados</label>
+                <input type="text" placeholder="∅,q0,q1,..." name="estados" id="estados">
+            </section>
+            
+            <section>
+                <label for="alfabeto">Alfabeto</label>
+                <input type="text" placeholder="0,1,..." name="alfabeto" id="alfabeto">
+            </section>
+
+            <section>
+                <label for="estado_inicial">Estado inicial</label>
+                <input type="text" placeholder="q0" name="estado_inicial" id="estado_inicial">
+            </section>
+
+            <section>
+                <label for="estados_finales">Estados finales</label>
+                <input type="text" placeholder="q0,q2,.." name="estados_finales" id="estados_finales">
+            </section>
+
+            <section id="llenar_funciones_transicion" class="desactivado">
+                <table id="tabla_funciones_transicion">
+                </table>
+            </section>
+            <section>
+                <button id="boton_calcular" disabled >Calcular AFD</button>
+                <p id="error"></p>
+            </section>
+        </section>
+
+        <section id="resultado">
+            <table id="tabla_resultado" class="desactivado">
+            </table>
+        </section>
+        <div id="miRed" class="">
+
+        </div>
+    </main>
+</body>
+<script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+<script src="Grafo.js" type="module"></script>
+<script src="index.js" type="module"></script>
+</html>
+
