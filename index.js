@@ -163,19 +163,25 @@ function obtenerTablaResultado(objetoTransiciones){
     for (let caracter in alfabeto1){
         primeraFila += `<th>${caracter}</th>`;
     }
-    let filaPrincipal = primeraFilaInicio + primeraFila + primeraFilaFin;
+    let filaPrincipal = primeraFilaInicio + primeraFila + "<th>Tipo</th>" + primeraFilaFin;
 
     // Filas restantes
     let filas = "";
     for (let estado in objetoTransiciones){
-        let fila = `<tr><td>${estado}</td>`;
+        let fila = `<td>${estado}</td>`;
         for (let caracter in alfabeto1){
             fila += `<td>${objetoTransiciones[estado][caracter]}</td>`;
         }
+        fila += `<td>${objetoTransiciones[estado].tipoEstado}</td>`;
         fila += `</tr>`;
         filas += fila;
     }
     return filaPrincipal + filas;
+}
+
+//Funcion poner primera letra de la string en mayuscula 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function obteerTabla(){

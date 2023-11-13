@@ -183,6 +183,7 @@ main section#capturar_datos section#llenar_funciones_transicion.activado table t
 main section#resultado {
   height: -moz-max-content;
   height: max-content;
+  background: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
