@@ -1,80 +1,73 @@
 // importar la clase vis desde el link "https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"
 
-
-
 export const opciones = {
-            height: '100%',
-            width: '100%',
-            nodes: {
-              shape: 'circle',
-              borderWidth: 2,
-              size: 60,
-              color: {
+    height: '100%',
+    width: '100%',
+    nodes: {
+        shape: 'circle',
+        borderWidth: 2,
+        size: 60,
+        color: {
+            border: 'blue',
+            background: 'blue',
+            highlight: {
                 border: 'blue',
-                background: 'blue',
+                background: 'blue'
+            },
+            hover: {
+                border: 'blue',
+                background: 'blue'
+            }
+        }
+    },
+    edges: {
+        color: 'orange'
+    },
+    groups: {
+        inicio: {
+            color: {
+                background: 'white',
+                border: 'grey',    
                 highlight: {
-                  border: 'blue',
-                  background: 'blue'
+                    border: 'grey',
+                    background: 'white'
                 },
                 hover: {
-                  border: 'blue',
-                  background: 'blue'
-                }
-              },
-            },
-            edges: {
-              color: 'orange'
-            },
-            groups: {
-              inicio: {
-                color: {
-                  background: 'white',
-                  border: 'grey',    
-                  highlight: {
                     border: 'grey',
                     background: 'white'
-                  },
-                  hover: {
-                    border: 'grey',
-                    background: 'white'
-                  }
                 }
-              },
-              final: {
-                color: {
-                  background: 'grey',
-                  border: 'grey',
-                  highlight: {
-                    border: 'grey',
-                    background: 'grey'
-                  },
-                  hover: {
-                    border: 'grey',
-                    background: 'grey'
-                  }
-                }
-              },
-          
-              nada:{
-                  color: {
-                  background: 'white',
-                  border: 'white',
-                  highlight: {
-                    border: 'white',
-                    background: 'white'
-                  },
-                  hover: {
-                    border: 'white',
-                    background: 'white'
-                  }
-                }
-              
-              }
             }
+        },
+        final: {
+            color: {
+                background: 'grey',
+                border: 'grey',
+                highlight: {
+                    border: 'grey',
+                    background: 'grey'
+                },
+                hover: {
+                    border: 'grey',
+                    background: 'grey'
+                }
+            }
+        },
+        nada:{
+            color: {
+                background: 'white',
+                border: 'white',
+                highlight: {
+                    border: 'white',
+                    background: 'white'
+                },
+                hover: {
+                    border: 'white',
+                    background: 'white'
+                }
+            }           
+        }
+    }
 };
-
-
-    
 
 export function devolverNodos(funcionesTransicionAFD){
     let lista = [];
@@ -93,6 +86,7 @@ export function devolverNodos(funcionesTransicionAFD){
         
     return lista;
 }
+
 export function devolverBordes(funcionesTransicionAFD, alfabeto, estadoInicial){
     let lista = [];
     lista.push({ from: 'nada', to: estadoInicial, label: '', arrows: 'to' })
@@ -106,11 +100,8 @@ export function devolverBordes(funcionesTransicionAFD, alfabeto, estadoInicial){
         }
     }
 
-
-
     return unirLabels(lista);
 }
-
 
 // Funcion para que si hay suplicados de from y to, el string del label se una
 function unirLabels(listaBordes){
@@ -126,5 +117,3 @@ function unirLabels(listaBordes){
     }
     return listaBordesUnidos;
 }
-
-

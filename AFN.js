@@ -114,15 +114,31 @@ export class AFN{
             }
         }
 
+        // Poner un objeto {} con el estado vacio
+        let objetoVacio = {}
+        for (let estado of ["∅"]){
+            objetoVacio[estado] = {};
+            for (let caracter of this.alfabeto){
+                objetoVacio[estado][caracter] = ["∅"];
+            }
+            objetoVacio[estado]["perteneceAFD"] = false;
+            objetoVacio[estado]["tipoEstado"] = "vacio";
+        }
+        
+
+        funcionesTransicionAFN = { "∅": objetoVacio["∅"], ...funcionesTransicionAFN };
+
         // poner si pertenece al AFD
         funcionesTransicionAFN = this.ponerPertenecenAFD(this.estadoInicial, funcionesTransicionAFN);
         let listaEstadosAFD = {};
+        console.log(funcionesTransicionAFN);
 
         for (let estado in funcionesTransicionAFN){
             if (funcionesTransicionAFN[estado].perteneceAFD == true){
                 listaEstadosAFD[estado] = funcionesTransicionAFN[estado];
             }
         }
+        console.log(listaEstadosAFD);
 
         return listaEstadosAFD;
     }
@@ -131,11 +147,16 @@ export class AFN{
         for (let letra of this.alfabeto){
             let estados =this.ordenarEstadosFormatoEstados( funcionesTransicionAFN[estadoInicial][letra]).join(",");
             // console.log(`    --> ${estados}`);
-            if (estados != "∅" &&   funcionesTransicionAFN[estados].perteneceAFD == false ){
+            // if (estados != "∅" && funcionesTransicionAFN[estados].perteneceAFD == false ){
+            //     funcionesTransicionAFN[estados].perteneceAFD = true;
+            //     // console.log(`${estadoInicial}`)
+            //     this.ponerPertenecenAFD(estados, funcionesTransicionAFN);
+            if (funcionesTransicionAFN[estados].perteneceAFD == false ){
                 funcionesTransicionAFN[estados].perteneceAFD = true;
                 // console.log(`${estadoInicial}`)
                 this.ponerPertenecenAFD(estados, funcionesTransicionAFN);
             }
+            // && estados != "∅"
 
         } 
         return funcionesTransicionAFN;

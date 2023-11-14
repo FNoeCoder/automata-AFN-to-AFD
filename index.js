@@ -147,7 +147,7 @@ function obtenerTablaResultado(objetoTransiciones){
         for (let caracter of alfabeto1){
             fila += `<td>${objetoTransiciones[estado][caracter]}</td>`;
         }
-        fila += `<td>${objetoTransiciones[estado].tipoEstado}</td>`;
+        fila += `<td>${capitalizeFirstLetter(objetoTransiciones[estado].tipoEstado)}</td>`;
         fila += `</tr>`;
         filas += fila;
     }
