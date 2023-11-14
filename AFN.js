@@ -130,7 +130,7 @@ export class AFN{
         console.log(estadoInicial);
         for (let letra of this.alfabeto){
             let estados =this.ordenarEstadosFormatoEstados( funcionesTransicionAFN[estadoInicial][letra]).join(",");
-            console.log(`    --> ${estados}`);
+            // console.log(`    --> ${estados}`);
             if (estados != "∅" &&   funcionesTransicionAFN[estados].perteneceAFD == false ){
                 funcionesTransicionAFN[estados].perteneceAFD = true;
                 // console.log(`${estadoInicial}`)

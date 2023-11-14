@@ -33,7 +33,7 @@ botonCalcular.addEventListener("click", () => {
         let afn = new AFN(estados.value.split(","), alfabeto.value.split(","), obtenerDatosInputsTransicones(), estadoInicial.value, estadosFinales.value.split(","));
         let funciones = afn.obtenerFuncionesTransicionAFD();
         tablaResultado.classList = "activado"
-        console.log(funciones);
+        // console.log(funciones);
         tablaResultado.innerHTML = obtenerTablaResultado(funciones);
 
         // Crear los grafos
@@ -60,7 +60,7 @@ function datosInputtransicionCorrectos(datos){
             for (let estadoResultante of datos[estado][caracter]){
                 if (!listaEstados.includes(estadoResultante)){ 
                     error.innerText = `Función de transición δ(${estado}, ${caracter}) no es valida`;
-                    console.log(estadoResultante);
+                    // console.log(estadoResultante);
                     return false;
                 }
                 
@@ -95,33 +95,7 @@ function obtenerDatosInputsTransicones(){
     return funcionesTransicion;
 }
 
-// Verificar que los campos sean validos de los input de la tabla ingresada
-// function camposTablasTrasicionValidos(){
-//     let contanidoTabla = tablaInputs.innerHTML;
-//     let listaEstados = estados.value.split(",");
-//     let listaAlfabeto = alfabeto.value.split(",");
 
-//     let elemetosIput = [];
-
-//     for (let estado of listaEstados){
-//         for (let caracter of listaAlfabeto){
-//             let elementoInput = document.getElementById(estado+":"+caracter);
-//             if (elementoInput.value.split(",").length > 1 && elementoInput.value.split(",").includes("")){ // Si hay mas de un estado y uno de ellos es vacio
-//                 error.innerText = "La tabla de transición no es valida";
-//                 return false;
-//             }
-//             else if (elementoInput.value != "∅"){
-//                 error.innerText = "La tabla de transición no es valida";
-//                 return false;
-//             }
-//             else {
-//                 error.innerText = "";
-//                 return true;
-//             }
-//         }
-//     }
-
-// }
 
 function camposValidos(){
     let listaEstados = estados.value.split(",");
@@ -129,7 +103,7 @@ function camposValidos(){
     let estadoInicialValor = estadoInicial.value;
     let listaEstadosFinales = estadosFinales.value.split(",");
 
-    console.log(listaEstados, listaAlfabeto, estadoInicialValor, listaEstadosFinales);
+    // console.log(listaEstados, listaAlfabeto, estadoInicialValor, listaEstadosFinales);
 
     if (listaEstados.includes("")){
         error.innerText = "Los estados no son validos";
@@ -159,8 +133,9 @@ function obtenerTablaResultado(objetoTransiciones){
     let primeraFilaFin = `</tr>`;
 
     let primeraFila = "";
-    console.log(objetoTransiciones);
-    for (let caracter in alfabeto1){
+    // console.log(objetoTransiciones);
+    console.log(alfabeto1);
+    for (let caracter of alfabeto1){
         primeraFila += `<th>${caracter}</th>`;
     }
     let filaPrincipal = primeraFilaInicio + primeraFila + "<th>Tipo</th>" + primeraFilaFin;
@@ -169,7 +144,7 @@ function obtenerTablaResultado(objetoTransiciones){
     let filas = "";
     for (let estado in objetoTransiciones){
         let fila = `<td>${estado}</td>`;
-        for (let caracter in alfabeto1){
+        for (let caracter of alfabeto1){
             fila += `<td>${objetoTransiciones[estado][caracter]}</td>`;
         }
         fila += `<td>${objetoTransiciones[estado].tipoEstado}</td>`;
