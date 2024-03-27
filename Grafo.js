@@ -95,8 +95,11 @@ export function devolverBordes(funcionesTransicionAFD, alfabeto, estadoInicial){
         for (let caracter of alfabeto){
             // console.log(funcionesTransicionAFD[estado][caracter]);
             let estadosDestino = funcionesTransicionAFD[estado][caracter].join(",");
-            lista.push({ from: estado, to: estadosDestino, label: caracter, arrows: 'to' });
-            
+            if (caracter === "∅"){
+                lista.push({ from: estado, to: estadosDestino, label: "No valido", arrows: 'to' });
+            }else{
+                lista.push({ from: estado, to: estadosDestino, label: caracter, arrows: 'to' });
+            }
         }
     }
 
